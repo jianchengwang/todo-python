@@ -3,13 +3,6 @@ import requests
 import re
 import json
 
-def main(page):
-    url = 'http://bang.dangdang.com/books/fivestars/01.00.00.00.00.00-recent30-0-0-1-' + str(page)
-    html = request_dandan(url)
-    items = parse_result(html)  # 解析过滤我们想要的信息
-    for item in items:
-        print(item)
-
 def request_dandan(url):
    try:
        response = requests.get(url)
@@ -36,6 +29,13 @@ def write_item_to_file(item):
     print('开始写入数据 ====> ' + str(item))
     with open('book.txt', 'a', encoding='UTF-8') as f:
         f.write(json.dumps(item, ensure_ascii=False) + '\n')
+
+def main(page):
+    url = 'http://bang.dangdang.com/books/fivestars/01.00.00.00.00.00-recent30-0-0-1-' + str(page)
+    html = request_dandan(url)
+    items = parse_result(html)  # 解析过滤我们想要的信息
+    for item in items:
+        print(item)
 
 if __name__ == "__main__":
     for i in range(1, 26):
