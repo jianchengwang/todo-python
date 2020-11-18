@@ -1,1 +1,0 @@
-SQLALCHEMY_DATABASE_URI='mysql+pymysql://root:Wjc123456@122.51.87.176:13306/test'
