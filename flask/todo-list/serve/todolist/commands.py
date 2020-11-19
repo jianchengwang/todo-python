@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import click
 
-from todolist import app, db
-from todolist.models import User, TodoItem
+from . import app, db
+from .todoItem.model import TodoItem
+from .user.model import User
 
 
 @app.cli.command()
@@ -52,7 +53,7 @@ def admin(username, password):
         user.set_password(password)
     else:
         click.echo('Creating user...')
-        user = User(username=username, name='Admin')
+        user = User(username=username)
         user.set_password(password)
         db.session.add(user)
 
