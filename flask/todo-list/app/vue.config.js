@@ -28,20 +28,17 @@ module.exports = {
     host: '0.0.0.0', // 如果是真机测试，就使用这个IP
     port: 8080,
     https: false,
-    hotOnly: false // 热更新（webpack已实现了，这里false即可）
-    // proxy: {
-    //   // 配置跨域
-    //   '/api': {
-    //     // target: "http://192.168.1.190:8080/",
-    //     target: 'http://192.168.0.217:8081',
-    //     // target: "http://192.168.1.188:8080/",
-    //     // target: "http://xone.xy-asia.com",
-    //     ws: true,
-    //     changOrigin: true,
-    //     pathRewrite: {
-    //       '^/api': ''
-    //     }
-    //   }
-    // }
+    hotOnly: false, // 热更新（webpack已实现了，这里false即可）
+    proxy: {
+      // 配置跨域
+      '/api': {
+        target: process.env.VUE_APP_BASE_API,
+        ws: true,
+        changOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   }
 }

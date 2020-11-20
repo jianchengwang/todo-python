@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import Api from '@/request/api.js'
 export default {
   name: 'Register',
   data () {
@@ -19,7 +20,9 @@ export default {
   },
   methods: {
     register: function () {
-
+      Api.user.register(registerForm).then(res => {
+        this.$route.next('/login')
+      })
     }
   }
 }

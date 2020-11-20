@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import API from '@/request/api.js'
 export default {
   name: 'Login',
   data () {
@@ -19,7 +20,9 @@ export default {
   },
   methods: {
     login: function () {
-
+      API.user.login(this.loginForm).then(res => {
+        this.$store.dispatch('loginSuccess', res.data, this.$route.query.redirect);
+      })
     }
   }
 }
