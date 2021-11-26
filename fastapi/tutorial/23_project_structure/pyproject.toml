@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["bob <bob.me@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.70.0"
+uvicorn = "^0.15.0"
+python-multipart = "^0.0.5"
+pydantic = "^1.8.2"
+Jinja2 = "^3.0.3"
+SQLAlchemy = "^1.4.27"
+alembic = "^1.7.5"
+tenacity = "^8.0.1"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+PyJWT = "^2.3.0"
+python-dotenv = "^0.19.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
